@@ -4,6 +4,8 @@ const async = require('async');
 const url = require('url');
 const ProgressBar = require('progress');
 
+
+
 class SiteMapCrawler {
   static start(links, isProgress, isLog, isCounting, callback) {
     const siteMap = {};
@@ -80,21 +82,24 @@ class SiteMapCrawler {
       '^mailto',
       'admin',
       'login',
-      'register'
+      'register',
+      ' '
     ];
     const rIgnores = new RegExp(ignores.join('|'), 'i');
 
-    if (href.startsWith('http')) {
-      const parentHostName = new URL(parent).hostname;
-      const hrefHostName = new URL(href).hostname;
+    if (href.indexOf(' ') < 0)) {
+      if (href.startsWith('http')) {
+        const parentHostName = new URL(parent).hostname;
+        const hrefHostName = new URL(href).hostname;
 
-      if (parentHostName === hrefHostName && !(href.match(rIgnores))) {
-        return href;
+        if (parentHostName === hrefHostName && !(href.match(rIgnores))) {
+          return href;
+        }
       }
-    }
 
-    if (!(href.match(rIgnores)) && !(href.includes('//'))) {
-      return url.resolve(parent, href);
+      if (!(href.match(rIgnores)) && !(href.includes('//'))) {
+        return url.resolve(parent, href);
+      }
     }
 
     return null;
