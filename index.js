@@ -82,8 +82,7 @@ class SiteMapCrawler {
       '^mailto',
       'admin',
       'login',
-      'register',
-      ' '
+      'register'
     ];
     const rIgnores = new RegExp(ignores.join('|'), 'i');
 
