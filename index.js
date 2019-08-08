@@ -84,7 +84,7 @@ class SiteMapCrawler {
     ];
     const rIgnores = new RegExp(ignores.join('|'), 'i');
 
-    if (href.indexOf(' ') < 0)) {
+    if (href.indexOf(' ') < 0) {
       if (href.startsWith('http')) {
         const parentHostName = new URL(parent).hostname;
         const hrefHostName = new URL(href).hostname;
