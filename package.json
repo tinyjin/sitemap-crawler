@@ -23,7 +23,7 @@
   "license": "MIT",
   "homepage": "https://github.com/tinyjin/sitemap-crawler",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "cheerio": "^1.0.0-rc.2",
     "progress": "^2.0.0",
     "request": "^2.88.0"
